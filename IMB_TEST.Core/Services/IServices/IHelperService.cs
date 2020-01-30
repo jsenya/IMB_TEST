@@ -8,6 +8,7 @@ namespace IMB_TEST.Core.Services.IServices
     public interface IHelperService
     {
         bool IsPrime(int num);
-
+        Func<T, K> Memoize<T, K>(Func<T, K> localFunc);
+        Func<int, bool> MemoizedIsPrime();
     }
 }
