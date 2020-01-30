@@ -1,6 +1,7 @@
 ﻿using IMB_TEST.Core.Services.IServices;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,17 @@ namespace IMB_TEST.Core.Services
     {
 		public int FindIndex<T>(T item, IEnumerable<T> items)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				for (var i = 0; i <= items.Count(); i++)
+					if (item.Equals(i)) return i;
+				return -1;
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
 		}
 
 		public bool IsPrime(int num)
