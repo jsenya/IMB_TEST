@@ -10,6 +10,8 @@ namespace IMB_TEST.Core.Test.Services
 {
     public class HelperServiceTests
     {
+        private readonly int[] items = new int[] { 1, 3, 2, 0 };
+
         [Theory]
         [InlineData(2)]
         [InlineData(3)]
@@ -88,6 +90,32 @@ namespace IMB_TEST.Core.Test.Services
             //assert
             Assert.NotNull(result);
             Assert.True(result is Func<int, bool>);
+        }
+
+        [Theory, InlineData(2)]
+        public void FindIndexReturnIndex(int item)
+        {
+            //arrange
+            IHelperService _service = GetHelperService();
+
+            //act
+            var result = _service.FindIndex<int>(item, items);
+
+            //assert
+            Assert.True(result == 2);
+        }
+
+        [Theory, InlineData(7)]
+        public void FindIndexReturnNegativeOne(int item)
+        {
+            //arrange
+            IHelperService _service = GetHelperService();
+
+            //act
+            var result = _service.FindIndex<int>(item, items);
+
+            //assert
+            Assert.True(result == -1);
         }
     }
 }

@@ -8,7 +8,12 @@ namespace IMB_TEST.Core.Services
 {
     public class HelperService : IHelperService
     {
-        public bool IsPrime(int num)
+		public int FindIndex<T>(T item, IEnumerable<T> items)
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool IsPrime(int num)
         {
 			try
 			{
